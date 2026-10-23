@@ -1,121 +1,172 @@
+
+Walid
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>موقعي الشخصي - المبرمج</title>
-    
     <style>
-        body {
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
-            text-align: center;
-            padding: 40px 20px;
         }
 
-        /* صورة الشخصية */
-        img {
-            width: 140px;
-            height: 140px;
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border: 4px solid #25d366;
+            margin-bottom: 20px;
         }
 
         h1 {
-            color: #2c3e50;
-            font-size: 28px;
-            margin-bottom: 8px;
+            font-size: 26px;
+            margin-bottom: 10px;
+            color: #111;
         }
 
         p.bio {
-            color: #666;
             font-size: 16px;
-            max-width: 500px;
-            margin: 0 auto 25px auto;
-            line-height: 1.6;
+            color: #555;
+            margin-bottom: 25px;
         }
 
-        /* صندوق الخدمات */
-        .services {
-            background: white;
-            max-width: 420px;
-            margin: 0 auto 30px auto;
-            padding: 20px 25px;
+        .section {
+            background: #fafafa;
+            border: 1px solid #eee;
+            padding: 20px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            margin-bottom: 25px;
             text-align: right;
         }
 
-        .services h2 {
-            color: #2c3e50;
+        .section h2 {
             font-size: 18px;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-
-        .services ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .services li {
-            padding: 10px 0;
-            border-bottom: 1px solid #f0f0f0;
-            font-size: 15px;
-        }
-
-        .services li:last-child {
-            border-bottom: none;
-        }
-
-        /* زر الواتساب الاحترافي */
-        .btn-whatsapp {
+            color: #222;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #25d366;
             display: inline-block;
-            background-color: #25D366;
-            color: white;
-            padding: 14px 28px;
-            font-size: 17px;
-            font-weight: bold;
-            border-radius: 30px;
-            text-decoration: none;
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-            transition: all 0.3s ease;
+            padding-bottom: 4px;
         }
 
-        .btn-whatsapp:hover {
-            background-color: #1ebc57;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+        .services-list {
+            list-style: none;
+            padding-right: 0;
+        }
+
+        .services-list li {
+            font-size: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .services-list li::before {
+            content: "✓";
+            color: #25d366;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .skills-container {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .skill-tag {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #1eb954;
         }
     </style>
 </head>
 <body>
 
-    <!-- الصورة الرمزية -->
-    <img src="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?w=300" alt="المبرمج">
+    <div class="container">
+        <!-- الصورة الشخصية -->
+        <img src="my-photo.jpg" alt="صورة المبرمج" class="profile-img">
 
-    <h1>مرحباً بك في موقعي!</h1>
-    <p class="bio">أنا أطور واجهات المواقع الإلكترونية ومستعد لبناء وتصميم مواقع احترافية تناسب مشروعك أو تجارتك.</p>
+        <!-- الترحيب والتعريف -->
+        <h1>مرحباً بك في موقعي!</h1>
+        <p class="bio">أنا أطور واجهات المواقع الإلكترونية ومستعد لبناء وتصميم مواقع احترافية تناسب مشروعك أو تجارتك.</p>
 
-    <!-- صندوق الخدمات -->
-    <div class="services">
-        <h2>الخدمات التي أقدمها:</h2>
-        <ul>
-            <li>✔ تصميم وتطوير مواقع الويب الحديثة</li>
-            <li>✔ إعداد صفحات الهبوط للمتاجر والشركات</li>
-            <li>✔ تحسين وتطوير شكل المواقع الحالية</li>
-        </ul>
+        <!-- قسم نبذة عني -->
+        <div class="section">
+            <h2>نبذة عني</h2>
+            <p>مطور مواقع متكافئ وأسعى دائماً للابتكار وبناء تجارب مستخدم سريعة، جذابة، وموافقة لمختلف الشاشات والأجهزة.</p>
+        </div>
+
+        <!-- قسم مهاراتي التقنية -->
+        <div class="section">
+            <h2>مهاراتي التقنية</h2>
+            <div class="skills-container">
+                <span class="skill-tag">HTML5</span>
+                <span class="skill-tag">CSS3</span>
+                <span class="skill-tag">Responsive Design</span>
+                <span class="skill-tag">Git & GitHub</span>
+            </div>
+        </div>
+
+        <!-- قسم الخدمات -->
+        <div class="section">
+            <h2>الخدمات التي أقدمها:</h2>
+            <ul class="services-list">
+                <li>تصميم وتطوير مواقع الويب الحديثة</li>
+                <li>إعداد صفحات الهبوط للمتاجر والشركات</li>
+                <li>تحسين وتطوير شكل المواقع الحالية</li>
+            </ul>
+        </div>
+
+        <!-- زر التواصل عبر الواتساب -->
+        <a href="https://wa.me/212783503136" target="_blank" class="whatsapp-btn">
+            💬 تواصل معي عبر واتساب
+        </a>
     </div>
-
-    <!-- زر الواتساب التفاعلي (استبدل الرقم 212600000000 برقمك) -->
-    <a href="https://wa.me/212783503136?text=مرحباً،%20أريد%20الاستفسار%20عن%20خدمة%20برمجة%20موقع" target="_blank" class="btn-whatsapp">
-        💬 تواصل معي عبر واتساب
-    </a>
 
 </body>
 </html>
-
