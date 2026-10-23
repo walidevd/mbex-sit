@@ -7,16 +7,41 @@ Walid
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>موقعي الشخصي - المبرمج</title>
     <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --container-bg: #ffffff;
+            --text-color: #333;
+            --bio-color: #555;
+            --section-bg: #fafafa;
+            --section-border: #eee;
+            --heading-color: #222;
+            --skill-bg: #e8f5e9;
+            --skill-color: #2e7d32;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --container-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --bio-color: #aaa;
+            --section-bg: #2a2a2a;
+            --section-border: #333;
+            --heading-color: #ffffff;
+            --skill-bg: #1b382b;
+            --skill-color: #4caf50;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         body {
-            background-color: #f4f7f6;
-            color: #333;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.6;
             padding: 20px;
             display: flex;
@@ -26,11 +51,31 @@ Walid
         .container {
             max-width: 700px;
             width: 100%;
-            background: #ffffff;
+            background: var(--container-bg);
             padding: 30px;
             border-radius: 16px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.08);
             text-align: center;
+            position: relative;
+        }
+
+        /* زر تغيير الوضع */
+        .theme-toggle-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--section-bg);
+            border: 1px solid var(--section-border);
+            color: var(--text-color);
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .theme-toggle-btn:hover {
+            opacity: 0.8;
         }
 
         .profile-img {
@@ -45,18 +90,18 @@ Walid
         h1 {
             font-size: 26px;
             margin-bottom: 10px;
-            color: #111;
+            color: var(--heading-color);
         }
 
         p.bio {
             font-size: 16px;
-            color: #555;
+            color: var(--bio-color);
             margin-bottom: 25px;
         }
 
         .section {
-            background: #fafafa;
-            border: 1px solid #eee;
+            background: var(--section-bg);
+            border: 1px solid var(--section-border);
             padding: 20px;
             border-radius: 12px;
             margin-bottom: 25px;
@@ -65,7 +110,7 @@ Walid
 
         .section h2 {
             font-size: 18px;
-            color: #222;
+            color: var(--heading-color);
             margin-bottom: 12px;
             border-bottom: 2px solid #25d366;
             display: inline-block;
@@ -99,8 +144,8 @@ Walid
         }
 
         .skill-tag {
-            background-color: #e8f5e9;
-            color: #2e7d32;
+            background-color: var(--skill-bg);
+            color: var(--skill-color);
             padding: 6px 14px;
             border-radius: 20px;
             font-size: 14px;
@@ -128,6 +173,9 @@ Walid
 <body>
 
     <div class="container">
+        <!-- زر التبديل بين الوضع العادي والليلي -->
+        <button class="theme-toggle-btn" id="themeToggleBtn">🌙 الوضع الليلي</button>
+
         <!-- الصورة الشخصية -->
         <img src="my-photo.jpg" alt="صورة المبرمج" class="profile-img">
 
@@ -149,6 +197,7 @@ Walid
                 <span class="skill-tag">CSS3</span>
                 <span class="skill-tag">Responsive Design</span>
                 <span class="skill-tag">Git & GitHub</span>
+                <span class="skill-tag">JavaScript (Basic)</span>
             </div>
         </div>
 
@@ -167,6 +216,22 @@ Walid
             💬 تواصل معي عبر واتساب
         </a>
     </div>
+
+    <!-- كود جافاسكريبت لتشغيل الوضع الليلي -->
+    <script>
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const htmlElement = document.documentElement;
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.getAttribute('data-theme') === 'dark') {
+                htmlElement.removeAttribute('data-theme');
+                themeToggleBtn.textContent = '🌙 الوضع الليلي';
+            } else {
+                htmlElement.setAttribute('data-theme', 'dark');
+                themeToggleBtn.textContent = '☀️ الوضع العادي';
+            }
+        });
+    </script>
 
 </body>
 </html>
